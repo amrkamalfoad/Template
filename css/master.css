@@ -267,6 +267,7 @@ body{
 .nav-bar ul.listo li a{
     text-decoration: none;
     color: black;
+    
     /* background-color: violet; */
 }
 
