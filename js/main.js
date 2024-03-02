@@ -4,7 +4,7 @@ let spans=document.querySelectorAll(".skills-container .skill-div .skills>div .i
 let up=document.getElementsByClassName('up')[0];
 window.onscroll=()=>{
     if(window.scrollY >= container.offsetTop-120){
-    console.log("reached")
+    console.log("reached");
     spans.forEach((span)=>{
         span.style.width=span.dataset.width;
     })
@@ -13,7 +13,16 @@ window.onscroll=()=>{
     }else{
         up.style.display='none';
     }
-}
+    }
+    if(window.scrollY>=divstats.offsetTop){
+        if(!started){
+            for(let i=0;i<countspan.length;i++){
+                incNum(countspan[i])
+            }
+            started=true;
+        } 
+    }
+
 };
 
 up.onclick=function(){
@@ -25,16 +34,22 @@ up.onclick=function(){
 // by click on otherLinks in nav a dropdrown list appear
 let dropListNav=document.getElementsByClassName('megainside')[0];
 let otherLinks=document.getElementsByClassName('links')[0];
-console.log(otherLinks)
-otherLinks.addEventListener("click",function(){
-    if (dropListNav.style.display === "none") {
-        // If it is none, change it to block
-        dropListNav.style.display = "block";
-      } else {
-        // If it is block, change it to none
-        dropListNav.style.display = "none";
-      }
+let drop=document.getElementsByClassName('megainside')[0];
+
+otherLinks.addEventListener('mouseover',function(){
+    dropListNav.style.display = "block";
 })
+otherLinks.addEventListener('mouseout',function(){
+    dropListNav.style.display = "none";
+})
+drop.addEventListener('mouseover',function(){
+    dropListNav.style.display = "block";
+})
+drop.addEventListener('mouseout',function(){
+    dropListNav.style.display = "none";
+})
+
+
 //links on click scroll to container
 let articles=document.getElementById('articles');
 let divarticles=document.getElementsByClassName('articles')[0];
@@ -136,4 +151,18 @@ discount.addEventListener('click',function(){
     })
 });
 
-//
+//counter stats increasings numbers
+let countspan=document.getElementsByClassName('count');
+let started =false //function started no
+
+function incNum(el){
+    let goal=el.dataset.count;
+        let count=setInterval(()=>{
+            el.textContent++;
+            if(el.textContent == goal){
+                clearInterval(count)
+            }
+            
+        },2000/goal)
+}
+
