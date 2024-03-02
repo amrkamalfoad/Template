@@ -21,4 +21,17 @@ up.onclick=function(){
         behavior:"smooth"
     })
 }
+let dropListNav=document.getElementsByClassName('megainside')[0];
+
+let otherLinks=document.getElementsByClassName('links')[0];
+console.log(otherLinks)
+otherLinks.addEventListener("click",function(){
+    if (dropListNav.style.display === "none") {
+        // If it is none, change it to block
+        dropListNav.style.display = "block";
+      } else {
+        // If it is block, change it to none
+        dropListNav.style.display = "none";
+      }
+})
 

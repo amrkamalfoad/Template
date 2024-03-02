@@ -49,14 +49,16 @@ body{
     position: absolute;
     width: 100%;
     height: fit-content;
-    padding: 15px;
+    padding: 5px;
     bottom: 0px;
     transform: translateY(100%);
     right: 0;
     background-color: #fff;
+    display: none;
     z-index: 1000;
     border-top: 1px solid rgba(128, 128, 128, 0.167);
 }
+
 .nav-bar .megainside::after{
     content: "";
     position: absolute;
@@ -77,17 +79,7 @@ body{
     max-width: 50%;
     max-height: 100%;
 }
-@media (max-width:1050px) {
-    .megainside .other img{
-       /* background-color: red; */
-       display: none;
-    }
-}
-@media (max-width:768px) {
-    .megainside .other div{
-        flex-direction: column;
-    }
-}
+
 .megainside .other div{
     display: flex;
     flex: 2;
@@ -141,6 +133,38 @@ body{
     font-size: 15px;
    
 }
+@media (max-width:1050px) {
+    .megainside .other img{
+       display: none;
+    }
+}
+@media (max-width:768px) {
+    .megainside .other div{
+        margin: 0;
+    }
+    .megainside .other div a{ 
+       font-size: 12px;
+        
+    }
+}
+@media (max-width:468px) {
+    .megainside .other div{
+        margin: 0;
+    }
+    .megainside .other div a{ 
+       font-size: 14px;
+    }
+    .megainside .other div ul {
+        width: 100%;
+    }
+    .megainside .other div {
+        flex-direction: column;
+    }
+    .megainside .other div ul li {
+        border-bottom: 1px solid #ececec ;
+    }
+}
+
 .nav-bar ul.listo li:last-child{
     /* background-color: black; */
 }
